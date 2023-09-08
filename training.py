@@ -2,6 +2,8 @@ import torch
 
 def train_epoch(model, dataloader, criterion, optimizer, device, zero_grad=True):
     model.train()
+    model.to(device)
+    
     loss = 0
     batches = 0
 
@@ -26,6 +28,8 @@ def train_epoch(model, dataloader, criterion, optimizer, device, zero_grad=True)
 
 def validate(model, dataloader, criterion, device):
     model.eval()
+    model.to(device)
+
     loss = 0
     batches = 0
 
