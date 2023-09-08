@@ -3,13 +3,13 @@ import torch
 def train_epoch(model, dataloader, criterion, optimizer, device, zero_grad=True):
     model.train()
     model.to(device)
-    
+
     loss = 0
     batches = 0
 
     for data, labels in dataloader:
-        data = data.to(device)
-        labels = labels.to(device)
+        data.to(device)
+        labels.to(device)
 
         if zero_grad:
             optimizer.zero_grad()
@@ -35,8 +35,8 @@ def validate(model, dataloader, criterion, device):
 
     with torch.no_grad():
         for data, labels in dataloader:
-            data = data.to(device)
-            labels = labels.to(device)
+            data.to(device)
+            labels.to(device)
 
             output = model(data)
 
