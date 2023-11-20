@@ -40,6 +40,9 @@ def validate(model, dataloader, criterion, device):
 
             output = model(data)
 
-            loss += criterion(output, labels).item()
+            loss = criterion(output, labels)
+            print(loss.item())
+
+            loss += loss.item()
             batches += 1
     return loss / len(dataloader)   
